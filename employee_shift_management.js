@@ -42,3 +42,21 @@ function assignShift(employeeName, day, hour) {
 assignShift('Palmer', 'Friday', 5); // Output: Selected employee not found
 assignShift('David', 'Monday', 5); // Output: Employee already works on this day
 assignShift('Emily', 'Monday', 5); // Output: Emily was assigned a shift on : Monday for 5 hours
+
+//Task 4: Create a Function to Calculate Total Hours Worked
+function calculateTotalHours(employeeName) {
+    const selectedEmployee = employees.find(employee => employee.name === employeeName);
+    let totalHours = 0;
+
+    selectedEmployee.shifts.forEach(element => {
+        totalHours += element['hours'];
+    });
+
+    return totalHours;
+}
+
+console.log(calculateTotalHours('John')); // Output: 14
+console.log(calculateTotalHours('Sara')); // Output: 12
+console.log(calculateTotalHours('David')); // Output: 8
+console.log(calculateTotalHours('Emily')); // Output: 13
+
