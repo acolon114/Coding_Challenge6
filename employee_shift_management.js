@@ -60,3 +60,21 @@ console.log(calculateTotalHours('Sara')); // Output: 12
 console.log(calculateTotalHours('David')); // Output: 8
 console.log(calculateTotalHours('Emily')); // Output: 13
 
+//Task 5: Create a Function to List Employees with Free Days
+function listAvailableEmployees(selectedDay) {
+    employees.forEach(employee => {
+        const hasShift = employee.shifts.some(shift => shift.day === selectedDay);
+
+        if (!hasShift) {
+            console.log(employee.name + " is available on " + selectedDay + ".");
+        }
+    })
+}
+
+listAvailableEmployees('Monday'); // Sara
+listAvailableEmployees('Tuesday'); // John, David, Emily
+listAvailableEmployees('Wednesday'); // Sara, David, Emily
+listAvailableEmployees('Thursday'); // John, David, Emily
+listAvailableEmployees('Friday'); //John, Sara, David
+listAvailableEmployees('Saturday'); // John, Sara, David, Emily
+listAvailableEmployees('Sunday'); // John, Sara, David, Emily
